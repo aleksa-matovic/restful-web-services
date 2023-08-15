@@ -38,4 +38,9 @@ public class UserController {
                 .fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUserById(@PathVariable("id") Integer id) {
+        userDaoService.deleteById(id);
+    }
 }
